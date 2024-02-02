@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style/css/styles.css">
+    <style>
+        .header_text {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .btn {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .gif_container {
+            margin-left: 20px; /* Adjust the margin as needed */
+        }
+    </style>
+</head>
+<body>
+    <!-- Add the audio element here with autoplay -->
+    <audio id="backgroundAudio" autoplay loop>
+        <source src="media/movie scenes.mp3" type="audio/mp3">
+        Your browser does not support the audio tag.
+    </audio>
+
+    <div class="container">
+        <div>
+            <h1 class="header_text">will you be my valentine?</h1>
+        </div>
+        <div class="gif_container">
+            <img src="https://i.pinimg.com/originals/c7/e7/19/c7e71989cbc6e0bd6d0142380423c08c.gif" alt="Cute animated illustration">
+        </div>
+        <div class="buttons">
+            <button class="btn" id="yesButton" onclick="nextPage()">yes</button>
+            <button class="btn" id="noButton" onmouseover="moveButton()">no</button>
+            <script>
+                document.getElementById('yesButton').addEventListener('click', function () {
+                    var audio = document.getElementById('backgroundAudio');
+                    if (audio.paused) {
+                        audio.play();
+                    }
+                });
+
+                function nextPage() {
+                    window.location.href = "yes.html";
+                }
+
+                function moveButton() {
+                    var x = Math.random() * (window.innerWidth - document.getElementById('noButton').offsetWidth);
+                    var y = Math.random() * (window.innerHeight - document.getElementById('noButton').offsetHeight);
+                    document.getElementById('noButton').style.left = `${x}px`;
+                    document.getElementById('noButton').style.top = `${y}px`;
+                }
+            </script>
+        </div>
+    </div>
+    <!-- Include the audio player JavaScript file -->
+    <script src="/audio-player.js"></script>
+</body>
+</html>
